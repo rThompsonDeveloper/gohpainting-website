@@ -4,41 +4,45 @@ import { StarIcon } from "@heroicons/react/20/solid";
 const testimonials = [
   {
     name: "Sarah Johnson",
-    role: "Homeowner",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    content: `GOHpainting transformed our home with their exceptional work. The attention to detail and professionalism was outstanding. Highly recommend!`,
+    content:
+      "GOHpainting transformed our home with their exceptional attention to detail. The team was professional, efficient, and the results exceeded our expectations.",
     rating: 5,
   },
   {
-    name: "Jennifer Martinez",
-    role: "Business Owner",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    content: `Our office space looks brand new after GOHpainting's work. They completed the project on time and within budget. Will definitely use them again.`,
+    name: "Michael Chen",
+    content:
+      "As a business owner, I appreciate their reliability and quality work. They completed our office painting project on time and within budget.",
     rating: 5,
   },
   {
     name: "Emily Rodriguez",
-    role: "Property Manager",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    content: `GOHpainting has been our go-to painting contractor for years. Their consistent quality and reliability make them stand out in the industry.`,
+    content:
+      "The team at GOHpainting made the entire process stress-free. Their expertise in color selection helped us achieve the perfect look for our home.",
     rating: 5,
   },
 ];
 
 export default function Testimonials() {
   return (
-    <div className="bg-gray-50 py-24 sm:py-32">
+    <div className="bg-gradient-to-b from-blue-50 to-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center rounded-full px-4 py-1 text-sm font-medium ring-1 ring-inset ring-blue-600/20 mb-4"
+          >
+            <span className="font-mono">🌟</span>
+            <span className="ml-2">Testimonials</span>
+          </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+            className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400"
           >
             What Our Customers Say
           </motion.h2>
@@ -61,11 +65,11 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="flex flex-col items-start justify-between bg-white p-8 rounded-2xl shadow-sm"
+              className="flex flex-col items-start justify-between bg-white p-8 rounded-2xl shadow-sm ring-1 ring-gray-200 hover:ring-blue-200 transition-all duration-300 group"
             >
               <div className="flex items-center gap-x-4 text-xs">
-                <time dateTime="2020-03-16" className="text-gray-500">
-                  Mar 16, 2020
+                <time dateTime="2024-03-16" className="text-gray-500">
+                  Mar 16, 2024
                 </time>
                 <div className="flex items-center gap-x-2">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -82,18 +86,9 @@ export default function Testimonials() {
                   {testimonial.content}
                 </p>
               </div>
-              <div className="relative mt-8 flex items-center gap-x-4">
-                <img
-                  src={testimonial.image}
-                  alt=""
-                  className="h-10 w-10 rounded-full bg-gray-50"
-                />
-                <div className="text-sm leading-6">
-                  <p className="font-semibold text-gray-900">
-                    <span className="absolute inset-0" />
-                    {testimonial.name}
-                  </p>
-                  <p className="text-gray-600">{testimonial.role}</p>
+              <div className="mt-8 flex items-center gap-x-4">
+                <div className="h-10 w-10 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 flex items-center justify-center text-white font-semibold">
+                  {testimonial.name.charAt(0)}
                 </div>
               </div>
             </motion.article>
