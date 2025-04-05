@@ -1,5 +1,11 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
@@ -10,10 +16,22 @@ import SEO from "./components/SEO";
 import About from "./components/About";
 import Projects from "./components/Projects";
 
+// Custom scroll restoration component
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <HelmetProvider>
       <Router>
+        <ScrollToTop />
         <div className="min-h-screen bg-gray-50">
           <SEO
             title="GOHpainting - Professional Painting Services in Raleigh, NC"
